@@ -15,7 +15,7 @@ Firebase Remote config code guideline for Android developers
 ## Screenshots
 <table width="100%">
 	<tr>
-	  <th><img src="https://cloud.githubusercontent.com/assets/1763410/17868072/5800e7ba-68d7-11e6-9833-258e692b7aa5.png"></th>
+	  <th><img src="https://cloud.githubusercontent.com/assets/1763410/17868072/5800e7ba-68d7-11e6-9833-258e692b7aa5.png" width="33%"></th>
 	</tr>
 </table>
 
