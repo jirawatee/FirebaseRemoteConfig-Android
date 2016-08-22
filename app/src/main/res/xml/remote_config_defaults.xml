@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+
+	<entry>
+		<key>is_promotion_on</key>
+		<value>false</value>
+	</entry>
+
+	<entry>
+		<key>price</key>
+		<value>100</value>
+	</entry>
+
+	<entry>
+		<key>discount</key>
+		<value>0</value>
+	</entry>
+
+</defaultsMap>
