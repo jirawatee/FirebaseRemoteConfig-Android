@@ -1,28 +1,39 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+	compileSdkVersion 25
+	buildToolsVersion "26.0.0"
 
-    defaultConfig {
-        applicationId "com.example.config"
-        minSdkVersion 25
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-    }
+	defaultConfig {
+		applicationId "com.example.config"
+		minSdkVersion 25
+		targetSdkVersion 25
+		versionCode 1
+		versionName "1.0"
+	}
 
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+	buildTypes {
+		release {
+			minifyEnabled true
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+		}
+		debug {
+			splits.abi.enable = false
+			splits.density.enable = false
+			aaptOptions.cruncherEnabled = false
+		}
+	}
+
+	dexOptions {
+		preDexLibraries true
+		maxProcessCount 8
+	}
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.google.firebase:firebase-config:10.2.0'
+	compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+	compile "com.google.firebase:firebase-config:$firebaseLibraryVersion"
+	compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

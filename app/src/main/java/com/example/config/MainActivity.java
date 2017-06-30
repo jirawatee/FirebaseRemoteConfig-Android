@@ -1,5 +1,6 @@
 package com.example.config;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -53,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				fetchDiscount();
+			}
+		});
+
+		findViewById(R.id.btn).setOnLongClickListener(new View.OnLongClickListener() {
+			@Override
+			public boolean onLongClick(View view) {
+				startActivity(new Intent(MainActivity.this, TMNActivity.class));
+				return false;
 			}
 		});
 	}
