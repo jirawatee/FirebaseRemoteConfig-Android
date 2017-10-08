@@ -80,10 +80,10 @@ public class TMNActivity extends AppCompatActivity implements View.OnClickListen
 	}
 
 	private void bindWidget() {
-		mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
-		mImageView = (ImageView) findViewById(R.id.banner);
+		mProgressBar = findViewById(R.id.progressBar);
+		mImageView = findViewById(R.id.banner);
 		mImageView.setOnClickListener(this);
-		mWebView = (WebView) findViewById(webview);
+		mWebView = findViewById(webview);
 	}
 
 	@SuppressLint("SetJavaScriptEnabled")

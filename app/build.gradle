@@ -2,14 +2,15 @@ apply plugin: 'com.android.application'
 
 android {
 	compileSdkVersion compileAndTargetSdk
-	buildToolsVersion "26.0.1"
+	buildToolsVersion "26.0.2"
 
 	defaultConfig {
 		applicationId "com.example.config"
-		minSdkVersion 25
+		minSdkVersion 26
 		targetSdkVersion compileAndTargetSdk
 		versionCode 1
 		versionName "1.0"
+		resConfigs('en', 'xxxhdpi')
 	}
 
 	buildTypes {
@@ -31,9 +32,10 @@ android {
 }
 
 dependencies {
-	compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-	compile "com.google.firebase:firebase-config:$firebaseLibraryVersion"
-	compile 'com.github.bumptech.glide:glide:3.7.0'
+	implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+	implementation "com.google.firebase:firebase-config:$firebaseLibraryVersion"
+	implementation "com.github.bumptech.glide:glide:$glideLibraryVersion"
+	annotationProcessor "com.github.bumptech.glide:compiler:$glideLibraryVersion"
 }
 
 apply plugin: 'com.google.gms.google-services'
