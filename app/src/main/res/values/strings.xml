@@ -3,4 +3,6 @@
 	<string name="fetch">Fetch</string>
 	<string name="loading">Checking your price…</string>
 	<string name="price_prefix">Your price is %s</string>
+	<string name="succeeded">Succeeded</string>
+	<string name="failed">Failed</string>
 </resources>
