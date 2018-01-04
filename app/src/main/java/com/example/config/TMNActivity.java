@@ -20,7 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
-import static com.example.config.R.id.webview;
+import static com.example.config.R.id.webView;
 
 public class TMNActivity extends AppCompatActivity implements View.OnClickListener{
 	private static final String CONFIG_KEY_IS_PROMOTION = "is_promotion_on";
@@ -83,7 +83,7 @@ public class TMNActivity extends AppCompatActivity implements View.OnClickListen
 		mProgressBar = findViewById(R.id.progressBar);
 		mImageView = findViewById(R.id.banner);
 		mImageView.setOnClickListener(this);
-		mWebView = findViewById(webview);
+		mWebView = findViewById(webView);
 	}
 
 	@SuppressLint("SetJavaScriptEnabled")
