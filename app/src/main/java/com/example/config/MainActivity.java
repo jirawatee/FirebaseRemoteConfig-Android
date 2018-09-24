@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mPriceTextView = (TextView) findViewById(R.id.txt);
+        mPriceTextView = findViewById(R.id.txt);
 
         mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
 
