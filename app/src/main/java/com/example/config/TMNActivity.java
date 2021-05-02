@@ -3,8 +3,6 @@ package com.example.config;
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -13,6 +11,9 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,14 +40,11 @@ public class TMNActivity extends AppCompatActivity implements View.OnClickListen
 		bindWidget();
 		MyWebSetting();
 
-		FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings
-				.Builder()
-				.setDeveloperModeEnabled(BuildConfig.DEBUG)
-				.build();
+		FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder().build();
 
 		mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
-		mFirebaseRemoteConfig.setConfigSettings(configSettings);
-		mFirebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
+		mFirebaseRemoteConfig.setConfigSettingsAsync(configSettings);
+		mFirebaseRemoteConfig.setDefaultsAsync(R.xml.remote_config_defaults);
 
 		fetchData();
 	}
@@ -115,14 +113,11 @@ public class TMNActivity extends AppCompatActivity implements View.OnClickListen
 
 	private void fetchData() {
 		long cacheExpiration = 3600;
-		if (mFirebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {
-			cacheExpiration = 0;
-		}
 		mFirebaseRemoteConfig.fetch(cacheExpiration).addOnCompleteListener(new OnCompleteListener<Void>() {
 			@Override
 			public void onComplete(@NonNull Task<Void> task) {
 				if (task.isSuccessful()) {
-					mFirebaseRemoteConfig.activateFetched();
+					mFirebaseRemoteConfig.activate();
 				}
 				if (mFirebaseRemoteConfig.getBoolean(CONFIG_KEY_IS_PROMOTION)) {
 					Glide.with(TMNActivity.this).load(mFirebaseRemoteConfig.getString(CONFIG_KEY_TMN_PICTURE)).thumbnail(0.1f).into(mImageView);
